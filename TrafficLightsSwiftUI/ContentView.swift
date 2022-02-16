@@ -13,7 +13,9 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), Color(#colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)), Color(#colorLiteral(red: 0.6072029696, green: 0.651513804, blue: 1, alpha: 1))], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), Color(#colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)), Color(#colorLiteral(red: 0.6072029696, green: 0.651513804, blue: 1, alpha: 1))],
+                           startPoint: .top,
+                           endPoint: .bottom)
                 .ignoresSafeArea()
             VStack {
                 redCircle
