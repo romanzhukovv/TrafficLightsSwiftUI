@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var redCircle = ColorCircle(color: .red, opacity: 0.3)
-    @State private var yellowCircle = ColorCircle(color: .yellow, opacity: 0.3)
-    @State private var greenCircle = ColorCircle(color: .green, opacity: 0.3)
-    
     @State private var buttonLabel = "START"
     @State private var iterationNumber = 0
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), Color(#colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)), Color(#colorLiteral(red: 0.6072029696, green: 0.651513804, blue: 1, alpha: 1))], startPoint: .top, endPoint: .bottom)
@@ -25,21 +22,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button {
-                    buttonLabel = "NEXT"
-                    switch iterationNumber {
-                    case 0:
-                        greenCircle.opacity = 0.3
-                        redCircle.opacity = 1
-                        iterationNumber += 1
-                    case 1:
-                        redCircle.opacity = 0.3
-                        yellowCircle.opacity = 1
-                        iterationNumber += 1
-                    default:
-                        yellowCircle.opacity = 0.3
-                        greenCircle.opacity = 1
-                        iterationNumber = 0
-                    }
+                    buttonAction()
                 } label: {
                     Text(buttonLabel)
                         .font(.title)
@@ -51,6 +34,28 @@ struct ContentView: View {
                 }
                 .padding()
             }
+        }
+    }
+    
+    @State private var redCircle = ColorCircle(color: .red, opacity: 0.3)
+    @State private var yellowCircle = ColorCircle(color: .yellow, opacity: 0.3)
+    @State private var greenCircle = ColorCircle(color: .green, opacity: 0.3)
+    
+    private func buttonAction() {
+        buttonLabel = "NEXT"
+        switch iterationNumber {
+        case 0:
+            greenCircle.opacity = 0.3
+            redCircle.opacity = 1
+            iterationNumber += 1
+        case 1:
+            redCircle.opacity = 0.3
+            yellowCircle.opacity = 1
+            iterationNumber += 1
+        default:
+            yellowCircle.opacity = 0.3
+            greenCircle.opacity = 1
+            iterationNumber = 0
         }
     }
 }
